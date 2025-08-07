@@ -1,0 +1,28 @@
+[project]
+name = "riot_sbom"
+version = "0.0.1"
+description = "Create an sbom for a RIOT application"
+authors = [{name = "Daniel Lockau", email = "daniel.lockau@ml-pa.com"}]
+license = { text = "MIT" }
+readme = "README.md"
+requires-python = "<4.0,>=3.12"
+dependencies = [
+    "spdx-tools<1.0.0,>=0.8.2",
+    "scancode-toolkit<33.0.0,>=32.3.3",
+]
+
+[project.scripts]
+riot-sbom = "riot_sbom.cli:main"
+
+[dependency-groups]
+test = [
+    "jsonschema<5.0.0,>=4.23.0",
+]
+
+[build-system]
+requires = ["uv_build>=0.8.5,<0.9.0"]
+build-backend = "uv_build"
+
+[tool.uv]
+default-groups = []
+package = true
